@@ -25,6 +25,10 @@ const onMessage = (message: Discord.Message) => {
         message.reply("Ping!");
     }
 
+    if (message.content.toLowerCase() == "test"){
+        message.reply("Test!");
+    }
+
 };
 
 const client = new Discord.Client();
