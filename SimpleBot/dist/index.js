@@ -20,6 +20,9 @@ const onMessage = (message) => {
     if (message.content.toLowerCase() == "ping") {
         message.reply("Pong!");
     }
+    if (message.content.toLowerCase() == "pong") {
+        message.reply("Ping!");
+    }
 };
 const client = new discord_js_1.default.Client();
 client.on('ready', onReady);

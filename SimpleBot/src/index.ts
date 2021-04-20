@@ -12,7 +12,7 @@ const onReady = () => {
     }
 };
 const onMessage = (message: Discord.Message) => { 
-    
+
     if (message.author.bot){
         return;
     }
@@ -20,6 +20,11 @@ const onMessage = (message: Discord.Message) => {
     if (message.content.toLowerCase() == "ping"){
         message.reply("Pong!");
     }
+
+    if (message.content.toLowerCase() == "pong"){
+        message.reply("Ping!");
+    }
+
 };
 
 const client = new Discord.Client();
