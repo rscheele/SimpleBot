@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const discord_js_1 = __importDefault(require("discord.js"));
-// Set in ENV $env:DISCORD_TOKEN = 'MyToken'
 if (!process.env.DISCORD_TOKEN) {
     throw new Error("DISCORD_TOKEN environment variable missing.");
 }
@@ -15,8 +14,16 @@ const onReady = () => {
     }
 };
 const onMessage = (message) => {
-    // TODO: Implement this
+    if (message.author.bot) {
+        return;
+    }
+    if (message.content.toLowerCase() == "ping") {
+        message.reply("Pong!");
+    }
 };
 const client = new discord_js_1.default.Client();
 client.on('ready', onReady);
 client.on('message', onMessage);
+const discordToken = process.env.DISCORD_TOKEN;
+client.login(discordToken);
+//# sourceMappingURL=index.js.map
